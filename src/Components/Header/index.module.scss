@@ -1,0 +1,67 @@
+$primary-color: red;
+$border-color: #E6E6E6;
+$box-shadow-color: rgba(109, 109, 255, 0.10);
+$header-background: #FFF;
+$logo-color: #6D6DFF;
+$header-padding: 15px 25px 14px;
+$header-width: -webkit-fill-available !important;
+$input-background: #EFF4FC !important;
+
+#header {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  padding: $header-padding;
+  background-color: $primary-color;
+  position: fixed;
+  width: $header-width;
+  border-bottom: 1px solid var(--stroke, $border-color);
+  background: $header-background;
+  box-shadow: 0px 2px 15px 0px $box-shadow-color;
+  z-index: 9999;
+
+  .headerIcons {
+    position: relative;
+    cursor: pointer;
+    list-style: none;
+    margin: 0 10px;
+    display: flex;
+    height: 30px;
+
+    img {
+      margin-left: 25px;
+    }
+
+    span {
+      color: #000;
+      font-family: 'Lato';
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 30px;
+    }
+  }
+
+  .searcBox {
+    position: relative;
+    width: 400px;
+  }
+
+  .logo {
+    color: $logo-color;
+    font-family: 'Lato';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+  }
+
+  .inputSearch {
+    border-right: none !important;
+    border: none !important;
+    border-right: none !important;
+    background-color: $input-background;
+  }
+}

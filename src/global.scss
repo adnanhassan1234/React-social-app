@@ -1,0 +1,115 @@
+$primaryBackgroundColor: #EFF4FC;
+$facebookColor: #6D6DFF;
+$instagramColor: #E71A94;
+$linkedinColor: #2E78B6;
+$iconSize: 20px;
+$fontSize: 13px;
+$font-faimly:'Lato';
+
+.input-group-text {
+  background-color: $primaryBackgroundColor !important;
+  border: none !important;
+}
+// navbar_menu scss
+.navbar_menu {
+  .active{
+    border-radius: 8px;
+    background: rgba(109, 109, 255, 0.10);
+    color: #6D6DFF;
+    font-family:$font-faimly;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+   }
+  .social-icon {
+    width: $iconSize;
+    height: $iconSize;
+    color: #fff;
+    border-radius: 50px;
+    font-size: $fontSize;
+  }
+
+  .fa-facebook {
+    background-color: $facebookColor;
+    @extend .social-icon;
+  }
+
+  .fa-instagram {
+    background-color: $instagramColor;
+    @extend .social-icon;
+  }
+
+  .fa-linkedin {
+    background-color: $linkedinColor;
+    @extend .social-icon;
+  }
+}
+
+::-webkit-scrollbar {
+  display: none !important;
+}
+.input-group {
+  margin-left: 25px !important;
+}
+// social_app scss
+
+$primaryColor: #6D6DFF;
+$borderColor: #E6E6E6;
+$boxShadowColor: rgba(109, 109, 255, 0.10);
+$fontFamily: 'Lato';
+$secondaryColor: #B3B3B3;
+
+.social_story {
+  .story_info {
+    border-radius: 8px;
+    background: #FFF;
+    padding: 15px;
+    box-shadow: 0px 0px 15px 0px $boxShadowColor;
+
+    .write_story {
+      display: flex;
+      border-radius: 8px;
+      border: 1px solid $borderColor;
+      background: #FFF;
+    }
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+
+    ::placeholder {
+      color: $secondaryColor;
+      font-family: $fontFamily;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 131.9%;
+    }
+
+    input {
+      border: none;
+    }
+  }
+
+  .story_icon {
+    display: flex;
+    justify-content: space-between;
+
+    p {
+      color: #000;
+      font-family: $fontFamily;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: normal;
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+  }
+}

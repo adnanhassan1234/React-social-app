@@ -1,0 +1,85 @@
+$primary-color: #6D6DFF;
+$box-shadow-color: rgba(109, 109, 255, 0.10);
+$font-family: 'Lato';
+
+.frirnds_story {
+    .hr {
+        border: 1px solid #E6E6E6;
+    }
+    
+    a {
+        text-decoration: none;
+        color: var(--Primary, $primary-color);
+        font-family: $font-family;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 18px;
+    }
+    
+    border-radius: 8px;
+    padding: 16px;
+    background: #FFF;
+    box-shadow: 0px 0px 15px 0px $box-shadow-color;
+    
+    h6 {
+        color: #121212;
+        font-family: $font-family;
+        font-size: 19px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+    
+    .create__story {
+        display: flex;
+        border-radius: 80px;
+        background: rgba(109, 109, 255, 0.10);
+        justify-content: flex-start;
+        
+        p {
+            color: $primary-color;
+            font-family: $font-family;
+            font-size: 17px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: normal;
+            margin-top: 5px;
+        }
+        
+        img {
+            margin-top: 9px;
+            width: 22px;
+            height: 22px;
+            cursor: pointer;
+        }
+    }
+    
+    .friend_profile {
+        line-height: 33px;
+        display: flex;
+        
+        img {
+            width: 45px;
+            height: 45px;
+        }
+        
+        h6 {
+            color: #4D4D4D;
+            font-family: $font-family;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 18px;
+        }
+        
+        p {
+            color: #999;
+            font-family: $font-family;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: normal;
+        }
+    }
+}

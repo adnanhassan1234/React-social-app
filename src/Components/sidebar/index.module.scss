@@ -1,0 +1,31 @@
+$sidebarWidth: 245px;
+$sidebarTop: 60px !important;
+$sidebarPadding: 15px 20px 0;
+$sidebarHeight: 100vh;
+$sidebarBackgroundColor: #FFF;
+$sidebarBorderColor: #E6E6E6;
+$sidebarBoxShadowColor: rgba(109, 109, 255, 0.10);
+
+.sidebar, .rightSideBar {
+  width: $sidebarWidth;
+  position: fixed;
+  top: $sidebarTop;
+  padding: $sidebarPadding;
+  height: $sidebarHeight;
+  overflow-y: scroll;
+  background-color: $sidebarBackgroundColor;
+  margin-bottom: 30px;
+
+  &.sidebar {
+    left: 0;
+    border-right: 1px solid $sidebarBorderColor;
+  }
+
+  &.rightSideBar {
+    right: 0;
+    border-left: 1px solid $sidebarBorderColor;
+    z-index: 999;
+  }
+
+  box-shadow: 0 0 15px 0 $sidebarBoxShadowColor;
+}

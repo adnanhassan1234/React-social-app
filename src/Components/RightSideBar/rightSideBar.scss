@@ -1,0 +1,89 @@
+$fontFamily: 'Lato';
+$fontSizeLarge: 18px;
+$fontSizeSmall: 14px;
+$fontWeightBold: 700;
+$fontWeightMedium: 600;
+$fontWeightNormal: 400;
+$textColor: #4D4D4D;
+$onlineStatusColor: #63B3BF;
+$secondaryColor: #B3B3B3;
+
+.friends {
+  margin-bottom: 80px;
+
+  h6 {
+    color: $textColor;
+    font-family: $fontFamily;
+    font-size: $fontSizeLarge;
+    font-weight: $fontWeightBold;
+    line-height: 23px;
+    text-transform: uppercase;
+  }
+
+  img {
+    width: 45px;
+    height: 45px;
+    flex-shrink: 0;
+  }
+
+  .friend_profile {
+    line-height: 33px;
+
+    .online {
+      width: 10px;
+      height: 10px;
+      border-radius: 50px;
+      background-color: $onlineStatusColor;
+      margin-top: 14px;
+    }
+
+    .label {
+      background-color: $onlineStatusColor;
+      width: 48px;
+      height: 48px;
+      border-radius: 50px;
+      display: block;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      color: #fff;
+    }
+
+    span {
+      color: $textColor;
+      font-family: $fontFamily;
+      font-size: $fontSizeSmall;
+      font-weight: $fontWeightMedium;
+      line-height: 38px;
+
+      .time {
+        color: $secondaryColor;
+        font-family: $fontFamily;
+        font-size: 13px;
+        font-weight: $fontWeightMedium;
+        line-height: 18px;
+      }
+    }
+  }
+
+  h5 {
+    color: $textColor;
+    font-family: $fontFamily;
+    font-size: $fontSizeLarge;
+    font-weight: $fontWeightBold;
+    line-height: 33px;
+    text-transform: uppercase;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 28px;
+
+    .friend_btn {
+      position: relative;
+      margin-top: 100%;
+    }
+  }
+}

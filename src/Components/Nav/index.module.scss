@@ -1,0 +1,72 @@
+$navTextColor: #61677F;
+$navLinkColor: #808080;
+$navLinkHoverBgColor: rgba(109, 109, 255, 0.10);
+$navLinkHoverTextColor: #6D6DFF;
+
+// Common styles for text elements
+$fontFamily: 'Lato';
+$fontSize: 16px;
+$fontWeightNormal: 500;
+$fontWeightBold: 600;
+$lineHeightNormal: normal;
+
+nav {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 80px;
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 28px;
+
+    li {
+      position: relative;
+      margin-top: 8px;
+
+      h6 {
+        color: $navTextColor;
+        font-family: $fontFamily;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: $fontWeightBold;
+        line-height: 131.9%;
+      }
+
+      a {
+        display: block;
+        padding: 13px 15px 15px 40px;
+        text-decoration: none;
+        color: $navLinkColor;
+        font-family: $fontFamily;
+        font-size: $fontSize;
+        font-style: normal;
+        font-weight: $fontWeightNormal;
+        line-height: $lineHeightNormal;
+
+        &:hover {
+          border-radius: 8px;
+          background: $navLinkHoverBgColor;
+          color: $navLinkHoverTextColor;
+          font-family: $fontFamily;
+          font-size: $fontSize;
+          font-style: normal;
+          font-weight: $fontWeightBold;
+          line-height: $lineHeightNormal;
+        }
+
+        i {
+          position: absolute;
+          top: 13px;
+          left: 10px;
+          display: flex !important;
+          align-items: center;
+          justify-content: center;
+          width: 25px;
+          height: 25px;
+        }
+      }
+    }
+  }
+}
