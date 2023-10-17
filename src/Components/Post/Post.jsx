@@ -1,33 +1,72 @@
-import React from "react";
-import round from "../../Images/story/Round (1).png";
-import round1 from "../../Images/story/Round.png";
+import React, { useState, useEffect } from "react";
 import "./post.scss";
-import PostProfile from "./postProfile";
 import heart from "../../Images/story/Heart solid icon.png";
-import comment from "../../Images/story/Comment stroke icon.png";
+import unlike from "../../assets/images.png";
+import commentIcon from "../../Images/story/Comment stroke icon.png";
 import vector from "../../Images/story/Vector.png";
-import like from "../../Images/story/like (1) 1.png";
-import happy from "../../Images/story/happy.png";
-import pluss from "../../Images/story/pluss.png";
+import { BiSolidSend } from "react-icons/bi";
 
 const Post = (props) => {
-  // console.log(props)
+  const {
+    name,
+    description,
+    image,
+    profileImage,
+    createdDate,
+    comments,
+    share,
+  } = props || {};
+
+  const [newComment, setNewComment] = useState("");
+  const [commentList, setCommentList] = useState(
+    Array.isArray(comments) ? comments : []
+  );
+  const [isLiked, setIsLiked] = useState(false); // Added state for like status
+
+  useEffect(() => {
+    if (!Array.isArray(comments)) {
+      setCommentList([comments]);
+    }
+  }, [comments]);
+
+  const handleCommentChange = (e) => {
+    setNewComment(e.target.value);
+  };
+
+  const handleCommentSubmit = () => {
+    if (newComment.trim() !== "") {
+      setCommentList((prevComments) => [...prevComments, newComment]);
+      setNewComment("");
+    }
+  };
+
+  const handleLikeClick = () => {
+    setIsLiked(!isLiked);
+  };
+
   const postOptions = [
-    { icon: heart, text: "129k Likes", color: "#CE395F" },
-    { icon: comment, text: "25 Comments" },
-    { icon: vector, text: "215 Shares" },
+    {
+      icon:  `${isLiked ? heart  : unlike}`,
+      text: `${isLiked ? "Unlike" : "Like"}`,
+      color: isLiked ? "#CE395F" : undefined,
+    }, 
+    { icon: commentIcon, text: `${commentList.length} Comments` },
+    { icon: vector, text: `${share} Shares` },
   ];
+
   return (
     <>
-      <section className="post my-4">
-        <PostProfile
-          title="Jorn Buston"
-          time="12 April at 09:28 PM"
-          image={round}
-        />
+      <section className="post my-3">
+        <div className="post_info">
+          <img src={profileImage} alt="" />
+          <div className="user mx-2">
+            <h6>{name}</h6>
+            <p className="time">{createdDate}</p>
+          </div>
+        </div>
         <p className="mb-2">
-          {props.description}
-          <img src={props.image} className="mt-3" width="100%" alt="" />
+          {description}
+          <img src={image} className="mt-3" width="100%" alt="" />
         </p>
         <div className="comments px-2">
           {postOptions?.map((option, index) => (
@@ -37,30 +76,30 @@ const Post = (props) => {
             </div>
           ))}
         </div>
-        {props.comment && <hr className="hr" />}
-        {props.comment && (
-          <>
-            <h6 className="view mb-4">View 24 comments before</h6>
-            <PostProfile
-              title="Jorn Buston"
-              time="My all-time favorite quote"
-              image={round}
-            />
-            <div className="story_info">
-              <div className="write_story p-2">
-                <img src={round1} alt="" />
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Write comment..."
-                />
-                <img src={like} alt="" />
-                <img src={happy} alt="" />
-                <img src={pluss} alt="" />
-              </div>
+        <div onClick={handleLikeClick} className="heart">
+          <img src={heart} width={27} alt="" />
+        </div>
+        <hr className="hr" />
+        <div className="comments-conaitner">
+          {commentList.map((comment, index) => (
+            <div className="d-flex comment ms-2" key={index}>
+              <img src={profileImage} width={25} height={25} alt="" /> &nbsp;
+              <span>{comment}</span>
             </div>
-          </>
-        )}
+          ))}
+        </div>
+        <div className="comment-input write_story p-2">
+          <input
+            type="text"
+            value={newComment}
+            className="form-control"
+            onChange={handleCommentChange}
+            placeholder="Write a comment..."
+          />
+          <div onClick={handleCommentSubmit}>
+            <BiSolidSend className="send_icon" />
+          </div>
+        </div>
       </section>
     </>
   );

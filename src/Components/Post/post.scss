@@ -26,6 +26,7 @@ $hrColor: #E6E6E6;
       width: 48px;
       height: 48px;
       flex-shrink: 0;
+      border-radius: 50px;
     }
 
     h6 {
@@ -95,6 +96,9 @@ $hrColor: #E6E6E6;
       height: 24px !important;
       margin-left: 5px;
       cursor: pointer;
+      border-radius: 50px;
+
     }
+
   }
 }

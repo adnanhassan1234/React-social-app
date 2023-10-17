@@ -10,12 +10,16 @@ import { Link } from "react-router-dom";
 import Event from "../Event/Event";
 
 const FriendStory = () => {
+  
   const storyItems = [
+    { image: img2, name: "Ameeera shen", time: "12 April at 09.28 PM" },
     { image: img5, name: "Mark Marson", time: "12 April at 09.28 PM" },
     { image: img2, name: "Salsabilla", time: "12 April at 09.28 PM" },
     { image: img3, name: "Morgan", time: "12 April at 09.28 PM" },
     { image: img4, name: "Anna Ananda", time: "12 April at 09.28 PM" },
     { image: img1, name: "Allen Anderson", time: "12 April at 09.28 PM" },
+
+    { image: img3, name: "Morgan", time: "12 April at 09.28 PM" },
   ];
   return (
     <>

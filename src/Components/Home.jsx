@@ -1,18 +1,60 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import round from "../Images/story/Round.png";
 import plus from "../Images/story/plus.png";
 import video from "../Images/story/video.png";
 import live from "../Images/story/live.png";
-import main from "../Images/story/main.png";
 import Post from "./Post/Post";
 import FriendStory from "./Story/FriendStory";
+import userData from "../../db.json";
+import { ColorRing } from "react-loader-spinner";
 
 const Home = () => {
+  const [userContent, setUserContent] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [page, setPage] = useState(1);
+
+  const fetchUserData = () => {
+    const startIndex = (page - 1) * 3;
+    const endIndex = startIndex + 3;
+    const dataSlice = userData.users.slice(startIndex, endIndex);
+
+    setTimeout(() => {
+      setUserContent((prevContent) => [...prevContent, ...dataSlice]);
+      setLoading(false);
+    }, 2000);
+  };
+
+  const handelInfiniteScroll = () => {
+    try {
+      if (
+        window.innerHeight + document.documentElement.scrollTop + 1 >=
+        document.documentElement.scrollHeight
+      ) {
+        if (!loading) {
+          setLoading(true);
+          setPage((prev) => prev + 1);
+        }
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchUserData();
+  }, [page]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handelInfiniteScroll);
+    return () => window.removeEventListener("scroll", handelInfiniteScroll);
+  }, [loading]);
+
   const storyOptions = [
     { icon: plus, text: "Story activity" },
     { icon: video, text: "Photo/Video" },
     { icon: live, text: "Live Video" },
   ];
+
 
   return (
     <section className="social_story my-4">
@@ -36,17 +78,34 @@ const Home = () => {
               ))}
             </div>
           </div>
-
-          <Post
-            description="The greatest glory in living lies not in never falling, but in rising every time we fall.
-          Nelson Mandela"
-            comment={true}
-          />
-          <Post
-            description="One of the perks of working in an international company is sharing knowledge with your colleagues"
-            image={main}
-            comment={false}
-          />
+          <div className="row">
+            {userContent.map((content, index) => (
+              <div className="col-lg-12" key={content.id}>
+                <Post {...content} />
+              </div>
+            ))}
+          </div>
+          {loading && (
+            <div>
+              <h1 className="mb-3 text-center" style={{ color: "red" }}>
+                <ColorRing
+                  visible={true}
+                  height="80"
+                  width="80"
+                  ariaLabel="blocks-loading"
+                  wrapperStyle={{}}
+                  wrapperClass="blocks-wrapper"
+                  colors={[
+                    "#2E78B6",
+                    "#2E78B6",
+                    "#2E78B6",
+                    "#abbd81",
+                    "#202020",
+                  ]}
+                />
+              </h1>
+            </div>
+          )}
         </div>
         <div className="col-md-3">
           <FriendStory />

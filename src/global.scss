@@ -1,10 +1,10 @@
-$primaryBackgroundColor: #EFF4FC;
-$facebookColor: #6D6DFF;
-$instagramColor: #E71A94;
-$linkedinColor: #2E78B6;
+$primaryBackgroundColor: #eff4fc;
+$facebookColor: #6d6dff;
+$instagramColor: #e71a94;
+$linkedinColor: #2e78b6;
 $iconSize: 20px;
 $fontSize: 13px;
-$font-faimly:'Lato';
+$font-faimly: "Lato";
 
 .input-group-text {
   background-color: $primaryBackgroundColor !important;
@@ -12,16 +12,16 @@ $font-faimly:'Lato';
 }
 // navbar_menu scss
 .navbar_menu {
-  .active{
+  .active {
     border-radius: 8px;
-    background: rgba(109, 109, 255, 0.10);
-    color: #6D6DFF;
-    font-family:$font-faimly;
+    background: rgba(109, 109, 255, 0.1);
+    color: #6d6dff;
+    font-family: $font-faimly;
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-   }
+  }
   .social-icon {
     width: $iconSize;
     height: $iconSize;
@@ -49,21 +49,50 @@ $font-faimly:'Lato';
 ::-webkit-scrollbar {
   display: none !important;
 }
+.comments-conaitner {
+  .comment {
+    img {
+      border-radius: 50px;
+      margin-top: 5px;
+      border-radius: 50px;
+      margin-top: 2px;
+    }
+  }
+
+  span {
+    margin-top: 6px;
+    font-size: 15px;
+  }
+}
+.heart {
+  cursor: pointer;
+  display: flex;
+  transform: translate(20px, -34px);
+  cursor: pointer;
+  width: 50px;
+  opacity: 0;
+}
+.send_icon {
+  font-size: 22px;
+  float: right;
+  transform: translate(-12px, -30px) !important;
+  cursor: pointer;
+}
 .input-group {
   margin-left: 25px !important;
 }
 // social_app scss
 
-$primaryColor: #6D6DFF;
-$borderColor: #E6E6E6;
-$boxShadowColor: rgba(109, 109, 255, 0.10);
-$fontFamily: 'Lato';
-$secondaryColor: #B3B3B3;
+$primaryColor: #6d6dff;
+$borderColor: #e6e6e6;
+$boxShadowColor: rgba(109, 109, 255, 0.1);
+$fontFamily: "Lato";
+$secondaryColor: #b3b3b3;
 
 .social_story {
   .story_info {
     border-radius: 8px;
-    background: #FFF;
+    background: #fff;
     padding: 15px;
     box-shadow: 0px 0px 15px 0px $boxShadowColor;
 
@@ -71,7 +100,7 @@ $secondaryColor: #B3B3B3;
       display: flex;
       border-radius: 8px;
       border: 1px solid $borderColor;
-      background: #FFF;
+      background: #fff;
     }
 
     img {
